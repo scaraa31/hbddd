@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love ❤️</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="hearts-bg"></div>
+  <div id="sparkles-bg"></div>
+
+  <div id="app">
+
+    <!-- PAGE 1: WELCOME -->
+    <section id="page-welcome" class="page active">
+      <div class="page-content welcome-content">
+        <div class="teddy-container">
+          <div class="teddy">🧸</div>
+          <div class="teddy-glow"></div>
+        </div>
+        <div class="welcome-text">
+          <h1 class="main-title">Happy Birthday<br/><span class="name-highlight">My Love</span></h1>
+          <div class="heart-divider">
+            <span>♥</span><span>♥</span><span>♥</span>
+          </div>
+          <p class="subtitle">I made this little world just for you</p>
+        </div>
+        <button class="btn-main" onclick="goToPage('page-message')">
+          <span class="btn-icon">🎁</span>
+          <span>Open Your Surprise</span>
+          <div class="btn-glow"></div>
+        </button>
+        <div class="floating-elements">
+          <span class="float-el" style="left:8%;top:15%;animation-delay:0s">💕</span>
+          <span class="float-el" style="left:88%;top:10%;animation-delay:1.2s">✨</span>
+          <span class="float-el" style="left:5%;top:70%;animation-delay:2.4s">🌸</span>
+          <span class="float-el" style="left:92%;top:75%;animation-delay:0.8s">💖</span>
+          <span class="float-el" style="left:50%;top:5%;animation-delay:1.8s">⭐</span>
+          <span class="float-el" style="left:15%;top:45%;animation-delay:3s">🌷</span>
+          <span class="float-el" style="left:80%;top:45%;animation-delay:2s">💝</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: LOVE MESSAGE -->
+    <section id="page-message" class="page">
+      <div class="page-content message-content">
+        <div class="glass-card message-card">
+          <div class="card-header">
+            <span class="card-icon">💌</span>
+            <h2 class="card-title">A Message From My Heart</h2>
+          </div>
+          <div class="typing-container">
+            <p id="typing-text" class="typing-text"></p>
+            <span class="typing-cursor">|</span>
+          </div>
+          <div id="message-btn" class="btn-wrapper hidden">
+            <button class="btn-main" onclick="goToPage('page-gallery')">
+              <span class="btn-icon">📸</span>
+              <span>Next Surprise</span>
+              <div class="btn-glow"></div>
+            </button>
+          </div>
+        </div>
+        <div class="floating-elements">
+          <span class="float-el" style="left:5%;top:20%;animation-delay:0.5s">💕</span>
+          <span class="float-el" style="left:90%;top:30%;animation-delay:1.5s">🌸</span>
+          <span class="float-el" style="left:10%;top:80%;animation-delay:2s">💖</span>
+          <span class="float-el" style="left:85%;top:75%;animation-delay:0.8s">✨</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: MEMORY GALLERY -->
+    <section id="page-gallery" class="page">
+      <div class="page-content gallery-content">
+        <div class="section-header">
+          <span class="section-icon">📸</span>
+          <h2 class="section-title">Our Beautiful Memories</h2>
+          <p class="section-subtitle">Every moment with you is a treasure</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="polaroid" onclick="openLightbox(this)">
+            <div class="polaroid-img" style="background-image:url('https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=400')"></div>
+            <p class="polaroid-caption">The day we met ✨</p>
+          </div>
+          <div class="polaroid" onclick="openLightbox(this)">
+            <div class="polaroid-img" style="background-image:url('https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=400')"></div>
+            <p class="polaroid-caption">Love in every moment 💕</p>
+          </div>
+          <div class="polaroid" onclick="openLightbox(this)">
+            <div class="polaroid-img" style="background-image:url('https://images.pexels.com/photos/1415131/pexels-photo-1415131.jpeg?auto=compress&cs=tinysrgb&w=400')"></div>
+            <p class="polaroid-caption">Our special adventure 🌸</p>
+          </div>
+          <div class="polaroid" onclick="openLightbox(this)">
+            <div class="polaroid-img" style="background-image:url('https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400')"></div>
+            <p class="polaroid-caption">You make life beautiful 🌷</p>
+          </div>
+          <div class="polaroid" onclick="openLightbox(this)">
+            <div class="polaroid-img" style="background-image:url('https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=400')"></div>
+            <p class="polaroid-caption">Forever in my heart 💖</p>
+          </div>
+          <div class="polaroid" onclick="openLightbox(this)">
+            <div class="polaroid-img" style="background-image:url('https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=400')"></div>
+            <p class="polaroid-caption">My favorite smile 😊</p>
+          </div>
+        </div>
+        <button class="btn-main" onclick="goToPage('page-game')" style="margin-top:2rem">
+          <span class="btn-icon">🎮</span>
+          <span>Next Surprise</span>
+          <div class="btn-glow"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+      <div class="lightbox-inner" onclick="event.stopPropagation()">
+        <div id="lightbox-img" class="lightbox-img"></div>
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      </div>
+    </div>
+
+    <!-- PAGE 4: MINI GAME -->
+    <section id="page-game" class="page">
+      <div class="page-content game-content">
+        <div class="section-header">
+          <span class="section-icon">💝</span>
+          <h2 class="section-title">Catch My Love</h2>
+          <p class="section-subtitle">Catch the falling hearts — just like you caught mine!</p>
+        </div>
+        <div class="game-wrapper">
+          <div class="game-hud">
+            <div class="hud-item">
+              <span class="hud-label">Score</span>
+              <span id="game-score" class="hud-value">0</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">Lives</span>
+              <span id="game-lives" class="hud-value">❤️❤️❤️</span>
+            </div>
+            <div class="hud-item">
+              <span class="hud-label">Goal</span>
+              <span class="hud-value">20</span>
+            </div>
+          </div>
+          <canvas id="game-canvas"></canvas>
+          <div id="game-overlay" class="game-overlay">
+            <div class="game-overlay-content">
+              <div class="overlay-emoji">💝</div>
+              <h3 id="overlay-title">Ready to Catch My Love?</h3>
+              <p id="overlay-msg">Move with arrow keys or drag on mobile</p>
+              <button class="btn-main" id="start-btn" onclick="startGame()">
+                <span class="btn-icon">▶</span>
+                <span>Start Game</span>
+                <div class="btn-glow"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button id="game-next-btn" class="btn-main hidden" onclick="goToPage('page-letter')" style="margin-top:1.5rem">
+          <span class="btn-icon">💌</span>
+          <span>Next Surprise</span>
+          <div class="btn-glow"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 5: LOVE LETTER -->
+    <section id="page-letter" class="page">
+      <div class="page-content letter-content">
+        <div class="section-header">
+          <span class="section-icon">💌</span>
+          <h2 class="section-title">A Letter For You</h2>
+          <p class="section-subtitle">Click the envelope to reveal my words</p>
+        </div>
+        <div class="envelope-wrapper">
+          <div id="envelope" class="envelope" onclick="openEnvelope()">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body">
+              <div class="envelope-heart">💌</div>
+              <p class="envelope-hint">Click to open</p>
+            </div>
+          </div>
+          <div id="letter-paper" class="letter-paper hidden">
+            <div class="letter-lines">
+              <div class="letter-decoration">🌸 ✨ 🌸</div>
+              <p id="letter-text" class="letter-text"></p>
+              <div class="letter-signature">
+                <p>Forever yours,</p>
+                <p class="signature-name">Your Love 💕</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="letter-next-btn" class="btn-main hidden" onclick="goToPage('page-final')" style="margin-top:2rem">
+          <span class="btn-icon">🎉</span>
+          <span>Final Surprise</span>
+          <div class="btn-glow"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 6: FINAL SURPRISE -->
+    <section id="page-final" class="page">
+      <div id="confetti-container"></div>
+      <div id="fireworks-container"></div>
+      <div class="page-content final-content">
+        <div class="final-stars">
+          <span>⭐</span><span>✨</span><span>💫</span><span>⭐</span><span>✨</span>
+        </div>
+        <h1 class="final-title">Happy Birthday</h1>
+        <h2 class="final-name">My Love 🎂❤️</h2>
+        <div class="final-hearts-row">
+          <span class="pulse-heart">💖</span>
+          <span class="pulse-heart" style="animation-delay:0.3s">💗</span>
+          <span class="pulse-heart" style="animation-delay:0.6s">💝</span>
+          <span class="pulse-heart" style="animation-delay:0.9s">💗</span>
+          <span class="pulse-heart" style="animation-delay:1.2s">💖</span>
+        </div>
+        <div class="gift-wrapper">
+          <div id="gift-box" class="gift-box" onclick="openGift()">
+            <div class="gift-lid">
+              <div class="gift-ribbon-h"></div>
+            </div>
+            <div class="gift-body">
+              <div class="gift-ribbon-v"></div>
+              <div class="gift-bow">🎀</div>
+            </div>
+            <p class="gift-hint">Click to open your gift!</p>
+          </div>
+          <div id="gift-message" class="gift-message hidden">
+            <div class="gift-msg-inner">
+              <span class="gift-msg-icon">💝</span>
+              <h3>My Biggest Gift</h3>
+              <p>"My biggest gift is loving you, every single day, with everything I have. You are my sunshine, my peace, my home. Happy Birthday, my love."</p>
+              <div class="gift-hearts">
+                <span>💕</span><span>💖</span><span>💕</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="final-message">
+          <p>May this year bring you infinite joy, love, and all the beautiful things you deserve. 🌸</p>
+        </div>
+        <button class="btn-main" onclick="goToPage('page-welcome')" style="margin-top:1.5rem">
+          <span class="btn-icon">🔄</span>
+          <span>Replay From Beginning</span>
+          <div class="btn-glow"></div>
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <button id="music-btn" class="music-btn" onclick="toggleMusic()" title="Toggle Music">
+    <span id="music-icon">🎵</span>
+  </button>
+
+  <audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="/script.js"></script>
+</body>
+</html>

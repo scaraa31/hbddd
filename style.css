@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffcccb 25%, #ffb6c1 50%, #ffc0cb 75%, #fff0f5 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Background Elements */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+    content: '💖';
+    position: absolute;
+    animation: float 6s infinite linear;
+    font-size: 20px;
+}
+
+.sparkles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sparkles::before {
+    content: '✨';
+    position: absolute;
+    animation: sparkle 4s infinite linear;
+    font-size: 16px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+/* Sections */
+.section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 10;
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section.prev {
+    transform: translateX(-100%);
+}
+
+/* Content */
+.content {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+    position: relative;
+    z-index: 20;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #ff69b4;
+    text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    margin-bottom: 20px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 20px rgba(255, 105, 180, 0.5); }
+    to { text-shadow: 0 0 30px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.4); }
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: #ff1493;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.subtitle-small {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: #ff69b4;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #ff1493;
+    margin-bottom: 40px;
+    text-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+}
+
+/* Magic Buttons */
+.magic-btn {
+    position: relative;
+    background: linear-gradient(45deg, #ff69b4, #ff1493, #ff69b4);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+    margin-top: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.magic-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.6);
+}
+
+.magic-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ffb6c1, #ff69b4, #ffb6c1);
+    border-radius: 50px;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.7;
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.magic-btn:hover .btn-shine {
+    left: 100%;
+}
+
+/* Typing Animation */
+.typing-container {
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.typing-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.typing-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.typing-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Gallery */
+.gallery {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.polaroid {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    max-width: 250px;
+}
+
+.polaroid:nth-child(2) { transform: rotate(1deg); }
+.polaroid:nth-child(3) { transform: rotate(-1deg); }
+
+.polaroid:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(255, 105, 180, 0.3);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.photo-caption {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: #ff69b4;
+    font-weight: 600;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(255, 105, 180, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Game */
+.game-container {
+    max-width: 600px;
+}
+
+.game-instructions {
+    font-size: 1.2rem;
+    color: #ff69b4;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.game-score {
+    font-size: 1.5rem;
+    color: #ff1493;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+#gameCanvas {
+    border: 5px solid #ffb6c1;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fff5f7 0%, #ffeef8 100%);
+    display: block;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+}
+
+.game-complete {
+    background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 20px 0;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Cake */
+.cake-container {
+    margin: 40px 
